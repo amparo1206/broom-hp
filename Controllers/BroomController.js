@@ -68,6 +68,19 @@ const BroomController = {
             .status(500)
             .send({ message: "Unable to update broom" });
         }
+    },
+    async delete(req, res) {
+        try {
+            await Broom.destroy({
+                where: {
+                    id: req.params.id
+                }
+            })
+            res.send({ message: 'The broom has been removed' })
+        }
+        catch (error) {
+            console.error(err)
+        }
     }
 }
 
