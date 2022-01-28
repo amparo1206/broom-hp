@@ -3,7 +3,7 @@ const { Broom, Category } = require('../models/index');
 
 const BroomController = {
     create(req, res) {
-        Broom.create({ ...req.body, BroomId: req.broom.id })
+        Broom.create({ ...req.body})
         .then(broom => res.status(201).send({ message: 'Broom creates success', broom }))
         .catch(console.error)
     },

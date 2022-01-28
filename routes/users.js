@@ -9,4 +9,5 @@ router.put('/:id', authentication, UserController.update )
 router.delete('/:id', authentication, UserController.delete)
 router.post('/:login', UserController.login)
 router.delete('/logout', UserController.logout)
+
 module.exports = router;
