@@ -11,8 +11,6 @@ El proyecto ha sido desarrollado utilizando las siguientes paquetes en Nodejs:
 * Sequelize
 * Bcryptjs
 * Jsonwebtoken
-* Multer
-* Dotenv
 
 ## ¿Como desplegar el proyecto? 📋
 
