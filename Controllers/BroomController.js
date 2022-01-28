@@ -37,6 +37,15 @@ const BroomController = {
                 res.status(500).send({message: 'The broom could not be loaded'})
         })
     },
+    getById(req, res) {
+        Broom.findByPk(req.params.id, {
+            })
+            .then(broom => res.send(broom))
+            .catch(err => {
+                console.error(err)
+                res.status(500).send({ message :'The broom could not be loaded by id'})
+            })
+    },
     getAllByPrice(req, res) {
         Broom.findone({
             where: {
@@ -49,6 +58,19 @@ const BroomController = {
             .catch(err => {
                 console.error(err)
                 res.status(500).send({message: 'No broom price'})
+        })
+    },
+    getAllOrder(req,res){
+        Broom.findAll({
+            include: [{model: Category, as: 'categories', through: {attributes: []}}],
+            order: [
+                ['price', 'DESC']
+            ]
+        })
+        .then(brooms => res.send(brooms))
+        .catch(err => {
+            console.log(err)
+            res.status(500).send({ message: 'There has been a problem loading the brooms' })
         })
     },
     async update(req, res) {
